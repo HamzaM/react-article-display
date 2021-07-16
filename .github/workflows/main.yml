@@ -42,7 +42,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: docker-images-pull
+          ECR_REPOSITORY: docker-images
           IMAGE_TAG: latest
         run: |
           # Build a docker container and push it to ECR 
