@@ -40,5 +40,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: hvmzx/react-article-display:latest
+          tags: hvmzx/react-article-display:latest, hvmzx/react-article-display:${{ github.sha }}
       
