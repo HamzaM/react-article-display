@@ -49,7 +49,6 @@ jobs:
           propertyPath: 'image.tag'
           value: ${{ github.sha }}
           branch: master
-          targetBranch: master
-          createPR: true
+          createPR: fqlse
           message: 'Update Image Version to ${{ steps.image.outputs.version }}' 
       
