@@ -41,4 +41,15 @@ jobs:
           context: .
           push: true
           tags: hvmzx/react-article-display:latest, hvmzx/react-article-display:${{ github.sha }}
+          
+      - name: Update Image Version in the related HelmChart values.yaml
+        uses: fjogeleit/yaml-update-action@master
+        with:
+          valueFile: 'charts/example-chart/values.yaml'
+          propertyPath: 'image.tag'
+          value: ${{ github.sha }}
+          branch: master
+          targetBranch: master
+          createPR: true
+          message: 'Update Image Version to ${{ steps.image.outputs.version }}' 
       
