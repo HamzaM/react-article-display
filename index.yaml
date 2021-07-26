@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  example-chart:
+  - apiVersion: v2
+    appVersion: 1.0.2
+    created: "2021-07-26T11:05:01.992645872Z"
+    description: A Helm chart for Kubernetes
+    digest: 68668b8d6ef20a6b09f80e358f5ad468d7164f81d5163705a88f5e6cf58871ba
+    name: example-chart
+    type: application
+    urls:
+    - https://github.com/HamzaM/react-article-display/releases/download/example-chart-0.5.0/example-chart-0.5.0.tgz
+    version: 0.5.0
+generated: "2021-07-26T11:05:01.992650672Z"
