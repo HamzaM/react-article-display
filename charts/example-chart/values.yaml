@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: hvmzx/react-article-display
-  tag: 31868aa706cb8c9c48989a0e2be9614a5735243a
+  tag: da7b57ce701356e225bf34ecf8de1570c169ca37
   pullPolicy: Always
 imagePullSecrets: []
 nameOverride: ''
