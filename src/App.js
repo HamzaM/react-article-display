@@ -104,7 +104,7 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="title">Welcome to the website !</h1>
+      <h1 className="title">Welcome to the CICD Project</h1>
 
       <SearchForm
         searchTerm={searchTerm}
