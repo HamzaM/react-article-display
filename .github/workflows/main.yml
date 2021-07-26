@@ -49,15 +49,5 @@ jobs:
           propertyPath: 'image.tag'
           value: ${{ github.sha }}
           branch: master
-          createPR: fqlse
+          createPR: false
           message: 'Update Image Version to ${{ steps.image.outputs.version }}' 
-      
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
