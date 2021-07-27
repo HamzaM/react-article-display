@@ -51,3 +51,13 @@ jobs:
           branch: master
           createPR: false
           message: 'Update Image Version to ${{ steps.image.outputs.version }}' 
+
+      - name: Update Image Version in the related HelmChart Chart.yaml
+        uses: fjogeleit/yaml-update-action@master
+        with:
+          valueFile: 'charts/example-chart/Chart.yaml'
+          propertyPath: 'version'
+          value: ${GITHUB_REF#refs/tags/}
+          branch: master
+          createPR: false
+          message: 'Update Image Version to ${{ steps.image.outputs.version }}' 
