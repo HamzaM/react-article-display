@@ -60,16 +60,8 @@ jobs:
           valueFile: 'charts/example-chart/Chart.yaml'
           propertyPath: 'version'
           value: ${{ steps.get_version.outputs.VERSION }}
-          branch: master
-          createPR: false
-          message: 'Updated Chart Version to ${{ steps.get_version.outputs.VERSION }}' 
-
-      - name: Update Chart app Version in the related HelmChart Chart.yaml
-        uses: fjogeleit/yaml-update-action@master
-        with:
-          valueFile: 'charts/example-chart/Chart.yaml'
           propertyPath: 'appVersion'
           value: ${{ steps.get_version.outputs.VERSION }}
           branch: master
           createPR: false
-          message: 'Updated Chart app Version to ${{ steps.get_version.outputs.VERSION }}' 
+          message: 'Updated Chart Version to ${{ steps.get_version.outputs.VERSION }}' 
