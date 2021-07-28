@@ -63,6 +63,9 @@ jobs:
           branch: master
           createPR: false
           message: 'Updated Chart Version to ${{ steps.get_version.outputs.VERSION }}' 
+          
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Update Chart app Version in the related HelmChart Chart.yaml
         uses: fjogeleit/yaml-update-action@master
