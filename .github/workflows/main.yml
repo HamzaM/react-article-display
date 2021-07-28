@@ -42,7 +42,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: hvmzx/react-article-display:latest, hvmzx/react-article-display:${{ github.sha }}, hvmzx/react-article-display:${GITHUB_REF#refs/tags/}
+          tags: hvmzx/react-article-display:latest, hvmzx/react-article-display:${{ github.sha }}, hvmzx/react-article-display:${{ steps.get_version.outputs.VERSION }}
           
       - name: Update Image Version in the related HelmChart values.yaml
         uses: fjogeleit/yaml-update-action@master
