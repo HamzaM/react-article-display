@@ -64,7 +64,7 @@ jobs:
           createPR: false
           message: 'Update Image Version to ${{ steps.get_version.outputs.VERSION }}' 
 
-      - name: Update Image Version in the related HelmChart Chart.yaml
+      - name: Update app Version in the related HelmChart Chart.yaml
         uses: fjogeleit/yaml-update-action@master
         with:
           valueFile: 'charts/example-chart/Chart.yaml'
