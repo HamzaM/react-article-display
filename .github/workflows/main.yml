@@ -54,24 +54,24 @@ jobs:
           createPR: false
           message: 'Updated Docker Image Version to ${{ steps.image.outputs.VERSION }}' 
 
-      - name: Update Chart Version in the related HelmChart Chart.yaml
+      - name: Update Chart app Version in the related HelmChart Chart.yaml
         uses: fjogeleit/yaml-update-action@master
         with:
           valueFile: 'charts/example-chart/Chart.yaml'
-          propertyPath: 'version'
+          propertyPath: 'appVersion'
           value: ${{ steps.get_version.outputs.VERSION }}
           branch: master
           createPR: false
           message: 'Updated Chart Version to ${{ steps.get_version.outputs.VERSION }}' 
           
       - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Update Chart app Version in the related HelmChart Chart.yaml
+        run: git checkout charts/example-chart/Chart.yaml
+          
+      - name: Update Chart Version in the related HelmChart Chart.yaml
         uses: fjogeleit/yaml-update-action@master
         with:
           valueFile: 'charts/example-chart/Chart.yaml'
-          propertyPath: 'appVersion'
+          propertyPath: 'version'
           value: ${{ steps.get_version.outputs.VERSION }}
           branch: master
           createPR: false
