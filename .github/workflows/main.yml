@@ -4,11 +4,9 @@ name: CI
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - '*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -40,14 +38,14 @@ jobs:
         with:
           context: .
           push: true
-          tags: hvmzx/react-article-display:latest, hvmzx/react-article-display:${{ github.sha }}
+          tags: hvmzx/react-article-display:latest, hvmzx/react-article-display:${{ github.sha }}, hvmzx/react-article-display:${GITHUB_REF#refs/tags/}
           
       - name: Update Image Version in the related HelmChart values.yaml
         uses: fjogeleit/yaml-update-action@master
         with:
           valueFile: 'charts/example-chart/values.yaml'
           propertyPath: 'image.tag'
-          value: ${{ github.sha }}
+          value: ${GITHUB_REF#refs/tags/}
           branch: master
           createPR: false
           message: 'Update Image Version to ${{ steps.image.outputs.version }}' 
@@ -60,4 +58,14 @@ jobs:
           value: ${GITHUB_REF#refs/tags/}
           branch: master
           createPR: false
-          message: 'Update Image Version to ${{ steps.image.outputs.version }}' 
+          message: 'Update Image Version to ${GITHUB_REF#refs/tags/}' 
+
+      - name: Update Image Version in the related HelmChart Chart.yaml
+        uses: fjogeleit/yaml-update-action@master
+        with:
+          valueFile: 'charts/example-chart/Chart.yaml'
+          propertyPath: 'appVersion'
+          value: ${GITHUB_REF#refs/tags/}
+          branch: master
+          createPR: false
+          message: 'Update app Version to ${GITHUB_REF#refs/tags/}' 
