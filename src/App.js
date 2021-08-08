@@ -104,7 +104,7 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="title">Welcome to the last version 0.9.6</h1>
+      <h1 className="title">Welcome to the last version 0.9.7</h1>
 
       <SearchForm
         searchTerm={searchTerm}
